@@ -14,7 +14,7 @@
 #include "BIT Macros.h" 
 int main(void)
 {
-	SET_BIT(DDRB,3);
+	SET_BIT(SPI_Direction,3);
 	SPI_INTMASTER(0,0,0,16,0);
 	char OUTPUT;
 	
