@@ -13,7 +13,7 @@
 #include "spi.h"        
 #include "BIT Macros.h" 
 
-//Definition for Master initilaizing
+//Definition for Master initializing
 #define  DATA_ORDER     0
 #define  CLOCK_POLARITY 0
 #define  CLOCK_PHASE    0
