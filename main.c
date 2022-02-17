@@ -12,10 +12,19 @@
 #include <string.h>
 #include "spi.h"        
 #include "BIT Macros.h" 
+
+//Definition for Master initilaizing
+#define  DATA_ORDER     0
+#define  CLOCK_POLARITY 0
+#define  CLOCK_PHASE    0
+#define  CLOCK_RATE     16
+#define  SPEED_DOUBLE   0
+
+#define EN1   3  //Definition for Latch pin in 74HC595
 int main(void)
 {
-	SET_BIT(SPI_Direction,3);
-	SPI_INTMASTER(0,0,0,16,0);
+	SET_BIT(SPI_Direction,EN1);
+	SPI_INTMASTER(DATA_ORDER,CLOCK_POLARITY,CLOCK_PHASE,CLOCK_RATE,SPEED_DOUBLE);
 	char OUTPUT;
 	
     while(1)
@@ -30,9 +39,9 @@ int main(void)
 		
 		//Output Digital Data To 74HC595
 		
-		CLEAR_BIT(SPI_Port,3);           
+		CLEAR_BIT(SPI_Port,EN1);           
 		SPI_Master_WRITE(OUTPUT);
-		SET_BIT(SPI_Port,3);           
+		SET_BIT(SPI_Port,EN1);           
         _delay_ms(10);
     }
 }
